@@ -1,6 +1,6 @@
 ## Taxi App UI Theme v7.0.0
 
-运行之前先在目录下用terminal输入指令安装node modules：
+运行之前先在根目录下用terminal输入指令安装node modules：
 
  npm install
  
