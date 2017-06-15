@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "sdkVersion": "15.0.0",
+    "icon": "./images/AdDrivelogo.png",
+    "slug": "AdDrive",
+    "loading": {
+      "hideExponentText": true,
+      "icon": "./images/AdDrivelogo.png",
+      "backgroundImage": "./images/launchImages/splashscree.png"
+    },
+    "orientation": "portrait",
+    "primaryColor": "#cccccc",
+    "packagerOpts": {
+      "assetExts": [
+        "ttf"
+      ]
+    },
+    "ios": {
+    "bundleIdentifier": "io.market.nativebase.geekyants.taxiappui"
+  },
+   "android": {
+     "package": "io.market.nativebase.geekyants.taxiappui",
+     "config": {
+       "googleMaps": {
+         "apiKey": "AIzaSyDla9FU90I_CgQH77msaKVATRrXbTnFZe0"
+       }
+     }
+   },
+    "androidStatusBarColor": "#19192B",
+    "androidStatusBar": {
+      "barStyle": "dark-content",
+      "backgroundColor": "#19192B"
+    }
+  }
+}
