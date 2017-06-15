@@ -1,6 +1,14 @@
 ## Taxi App UI Theme v7.0.0
 
-Thanks for purchasing the Taxi App UI Theme .
+运行之前先在目录下用terminal输入指令安装node modules：
+
+ npm install
+ 
+完成后再输入
+
+ npm start
+ 
+出现二维码之后用从App Store下载好的《Expo》即可实现实时模拟
 
 Follow the documentation to install and get started with the development:
 
