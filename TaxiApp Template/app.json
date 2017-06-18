@@ -5,7 +5,7 @@
     "slug": "AdDrive",
     "loading": {
       "hideExponentText": true,
-      "icon": "./images/AdDrive.png",
+      "icon": "./images/AdDrivelogo.png",
       "backgroundImage": "./images/launchImages/splashscree.png"
     },
     "orientation": "portrait",
