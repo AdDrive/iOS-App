@@ -20,20 +20,27 @@ class BidAdHomeController: UIViewController, UICollectionViewDelegateFlowLayout,
         
         setupCollectionView()
         
+<<<<<<< HEAD
         // This is a example to create a model
         // this will be a type of Ads
         // Fill in the informations that we need
         var uber = Ads()
+=======
+        
+        let uber = Ads()
+>>>>>>> 02901175ac7dc99b35b63970f82c2c47d67323d3
         uber.image = UIImage(named: "uberLogo")
         uber.name = "UBER"
         uber.price = "12"
         uber.quantity = "90"
+        uber.timelength = "2"
         
-        var adidas = Ads()
+        let adidas = Ads()
         adidas.image = UIImage(named: "uberLogo")
         adidas.name = "ADIDAS"
         adidas.price = "13"
         adidas.quantity = "100"
+        adidas.timelength = "3"
         
         
         

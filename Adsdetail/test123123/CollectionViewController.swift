@@ -61,6 +61,7 @@ class Cell: UICollectionViewCell {
         //logo of ads
         self.addSubview(image)
         image.topAnchor.constraint(equalTo: self.topAnchor,constant:40).isActive = true
+//        image.topAnchor.constraintEqualToSystemSpacingBelow(<#T##anchor: NSLayoutYAxisAnchor##NSLayoutYAxisAnchor#>, multiplier: <#T##CGFloat#>)
         image.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 90).isActive = true
         image.bottomAnchor.constraint(equalTo: self.bottomAnchor, constant: -500).isActive = true
         image.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -90).isActive = true
@@ -108,6 +109,7 @@ class Cell: UICollectionViewCell {
         self.addSubview(numtitle)
         numtitle.topAnchor.constraint(equalTo: income.bottomAnchor).isActive = true
         numtitle.leftAnchor.constraint(equalTo: numleft.leftAnchor,constant:5).isActive = true
+        
         
         //deploy ads button
         self.addSubview(btn)
