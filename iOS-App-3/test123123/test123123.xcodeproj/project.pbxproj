@@ -14,6 +14,8 @@
 		4A5933301EF70928008F5B3E /* test123123Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59332F1EF70928008F5B3E /* test123123Tests.swift */; };
 		4A59333B1EF70928008F5B3E /* test123123UITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A59333A1EF70928008F5B3E /* test123123UITests.swift */; };
 		A0B58AFE1EFD939700CD62C1 /* BidAdHomeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B58AFD1EFD939700CD62C1 /* BidAdHomeController.swift */; };
+		A0B58B001EFDA0F700CD62C1 /* AdsDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B58AFF1EFDA0F700CD62C1 /* AdsDetail.swift */; };
+		A0B58B021EFDA2DF00CD62C1 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0B58B011EFDA2DF00CD62C1 /* Model.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		4A59333C1EF70928008F5B3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A0B58AF91EFC67B300CD62C1 /* test123123-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "test123123-Bridging-Header.h"; sourceTree = "<group>"; };
 		A0B58AFD1EFD939700CD62C1 /* BidAdHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidAdHomeController.swift; sourceTree = "<group>"; };
+		A0B58AFF1EFDA0F700CD62C1 /* AdsDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsDetail.swift; sourceTree = "<group>"; };
+		A0B58B011EFDA2DF00CD62C1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,11 +104,13 @@
 			children = (
 				4A59331A1EF70928008F5B3E /* AppDelegate.swift */,
 				A0B58AFD1EFD939700CD62C1 /* BidAdHomeController.swift */,
+				A0B58AFF1EFDA0F700CD62C1 /* AdsDetail.swift */,
 				4A59331E1EF70928008F5B3E /* Main.storyboard */,
 				4A5933211EF70928008F5B3E /* Assets.xcassets */,
 				4A5933231EF70928008F5B3E /* LaunchScreen.storyboard */,
 				4A5933261EF70928008F5B3E /* Info.plist */,
 				A0B58AF91EFC67B300CD62C1 /* test123123-Bridging-Header.h */,
+				A0B58B011EFDA2DF00CD62C1 /* Model.swift */,
 			);
 			path = test123123;
 			sourceTree = "<group>";
@@ -260,8 +266,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0B58B001EFDA0F700CD62C1 /* AdsDetail.swift in Sources */,
 				4A59331B1EF70928008F5B3E /* AppDelegate.swift in Sources */,
 				A0B58AFE1EFD939700CD62C1 /* BidAdHomeController.swift in Sources */,
+				A0B58B021EFDA2DF00CD62C1 /* Model.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

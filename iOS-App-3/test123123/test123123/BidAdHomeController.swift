@@ -11,12 +11,34 @@ import UIKit
 class BidAdHomeController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate {
     
     private let reuseIdentifier = "Cell"
-
+    
+    var ADDS = [Ads]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupCollectionView()
+        
+        
+        var uber = Ads()
+        uber.image = UIImage(named: "uberLogo")
+        uber.name = "UBER"
+        uber.price = "12"
+        uber.quantity = "90"
+        
+        var adidas = Ads()
+        adidas.image = UIImage(named: "uberLogo")
+        adidas.name = "ADIDAS"
+        adidas.price = "13"
+        adidas.quantity = "100"
+        
+        
+        
+        ADDS.append(uber)
+        ADDS.append(adidas)
+        
     }
+    
     
     
     
@@ -51,12 +73,18 @@ class BidAdHomeController: UIViewController, UICollectionViewDelegateFlowLayout,
     // 设置个数
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of items
-        return 50
+        return ADDS.count
     }
     
     // pre-set
     internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! Cell
+        
+        cell.name.text = ADDS[indexPath.item].name
+        cell.image.image = ADDS[indexPath.item].image
+        cell.price.text = "$" + ADDS[indexPath.item].price!
+        cell.seat.text = ADDS[indexPath.item].quantity
+        
         
         // Configure the cell
         cell.backgroundColor = UIColor.init(red: 250/255, green: 248/255, blue: 245/255, alpha: 1)
@@ -65,6 +93,14 @@ class BidAdHomeController: UIViewController, UICollectionViewDelegateFlowLayout,
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
         return 15
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let adController = AdsDetailController()
+        adController.addDetial = ADDS[indexPath.item]
+        
+        navigationController?.pushViewController(adController, animated: true)
     }
     
     
@@ -124,7 +160,7 @@ class Cell: UICollectionViewCell {
     }()
     
     //NAME
-    let name: UILabel = {
+    var name: UILabel = {
         let n = UILabel()
         n.text = "UBER"
         n.font = UIFont.boldSystemFont(ofSize: 10)
