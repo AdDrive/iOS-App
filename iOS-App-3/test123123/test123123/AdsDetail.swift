@@ -34,58 +34,67 @@ class AdsDetailController: UIViewController {
         
         view.backgroundColor = UIColor.init(red: 20/255, green: 63/255, blue: 65/255, alpha: 1)
         
-        view.addSubview(image)
+        let whiteView = UIView()
+        whiteView.backgroundColor = .white
+        view.addSubview(whiteView)
+        view.addConstraintsWithFormat(format: "H:|-20-[v0]-20-|", views: whiteView)
+        view.addConstraintsWithFormat(format: "V:|-80-[v0]-20-|", views: whiteView)
+        whiteView.layer.cornerRadius = 5
+        
+        
+        
+        whiteView.addSubview(image)
         image.topAnchor.constraint(equalTo: view.topAnchor,constant:40).isActive = true
         image.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 90).isActive = true
         image.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -500).isActive = true
         image.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -90).isActive = true
         
         //name of ads company
-        view.addSubview(label)
+        whiteView.addSubview(label)
         label.topAnchor.constraint(equalTo: image.bottomAnchor).isActive = true
         label.leftAnchor.constraint(equalTo: image.leftAnchor,constant:40).isActive = true
-        label.bottomAnchor.constraint(equalTo: view.bottomAnchor,constant:-470).isActive = true
+        label.bottomAnchor.constraint(equalTo: whiteView.bottomAnchor,constant:-450).isActive = true
         label.rightAnchor.constraint(equalTo: image.rightAnchor).isActive = true
         
         //preview of ads
-        view.addSubview(banner)
+        whiteView.addSubview(banner)
         banner.topAnchor.constraint(equalTo: label.topAnchor,constant:100).isActive = true
-        banner.leftAnchor.constraint(equalTo: view.leftAnchor).isActive = true
-        banner.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -250).isActive = true
-        banner.rightAnchor.constraint(equalTo: view.rightAnchor).isActive = true
+        banner.leftAnchor.constraint(equalTo: whiteView.leftAnchor).isActive = true
+        banner.bottomAnchor.constraint(equalTo: whiteView.bottomAnchor, constant: -250).isActive = true
+        banner.rightAnchor.constraint(equalTo: whiteView.rightAnchor).isActive = true
         
         //income per min
-        view.addSubview(income)
+        whiteView.addSubview(income)
         income.topAnchor.constraint(equalTo: banner.bottomAnchor,constant:40).isActive = true
-        income.leftAnchor.constraint(equalTo: view.leftAnchor,constant:45).isActive = true
+        income.leftAnchor.constraint(equalTo: whiteView.leftAnchor,constant:45).isActive = true
         
         //income's little title
-        view.addSubview(incometitle)
+        whiteView.addSubview(incometitle)
         incometitle.topAnchor.constraint(equalTo: income.bottomAnchor).isActive = true
         incometitle.leftAnchor.constraint(equalTo: income.leftAnchor,constant:1).isActive = true
         
         //time length
-        view.addSubview(timelen)
+        whiteView.addSubview(timelen)
         timelen.topAnchor.constraint(equalTo: income.topAnchor).isActive = true
         timelen.leftAnchor.constraint(equalTo: income.rightAnchor,constant:70).isActive = true
         
         //time length title
-        view.addSubview(timetitle)
+        whiteView.addSubview(timetitle)
         timetitle.topAnchor.constraint(equalTo: income.bottomAnchor).isActive = true
         timetitle.leftAnchor.constraint(equalTo: timelen.leftAnchor,constant:-5).isActive = true
         
         //number of ads left
-        view.addSubview(numleft)
+        whiteView.addSubview(numleft)
         numleft.topAnchor.constraint(equalTo: timelen.topAnchor).isActive = true
         numleft.leftAnchor.constraint(equalTo: timelen.rightAnchor,constant:70).isActive = true
         
         //number left title
-        view.addSubview(numtitle)
+        whiteView.addSubview(numtitle)
         numtitle.topAnchor.constraint(equalTo: income.bottomAnchor).isActive = true
         numtitle.leftAnchor.constraint(equalTo: numleft.leftAnchor,constant:5).isActive = true
         
         //deploy ads button
-        view.addSubview(btn)
+        whiteView.addSubview(btn)
     }
     
     var addDetial = Ads()
@@ -179,11 +188,13 @@ class AdsDetailController: UIViewController {
     }()
 
     let btn: UIButton = {
-        let btn = UIButton(frame: CGRect(x:70 , y: 520, width: 200, height: 50))
+        let btn = UIButton(frame: CGRect(x:70 , y: 470, width: 200, height: 50))
         btn.backgroundColor = UIColor.init(red: 3/255, green: 36/255, blue: 83/255, alpha: 1)
         btn.setTitle("Deploy Ads", for: .normal)
         //        btn.addTarget(self, action: #selector(buttonAction), forControlEvents: .touchUpInside)
         btn.tag = 1
+        btn.layer.cornerRadius = 5
+        
         return btn
     }()
     
