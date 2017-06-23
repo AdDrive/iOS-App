@@ -20,17 +20,19 @@ class BidAdHomeController: UIViewController, UICollectionViewDelegateFlowLayout,
         setupCollectionView()
         
         
-        var uber = Ads()
+        let uber = Ads()
         uber.image = UIImage(named: "uberLogo")
         uber.name = "UBER"
         uber.price = "12"
         uber.quantity = "90"
+        uber.timelength = "2"
         
-        var adidas = Ads()
+        let adidas = Ads()
         adidas.image = UIImage(named: "uberLogo")
         adidas.name = "ADIDAS"
         adidas.price = "13"
         adidas.quantity = "100"
+        adidas.timelength = "3"
         
         
         

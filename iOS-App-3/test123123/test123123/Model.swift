@@ -14,6 +14,7 @@ class Ads: NSObject {
     var name: String?
     var price: String?
     var quantity: String?
+    var timelength : String?
     
     
 }
