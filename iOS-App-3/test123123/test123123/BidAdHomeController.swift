@@ -12,14 +12,17 @@ class BidAdHomeController: UIViewController, UICollectionViewDelegateFlowLayout,
     
     private let reuseIdentifier = "Cell"
     
-    var ADDS = [Ads]()
+    var ADDS = [Ads]()      // This is the array to save all the information for all the ADS
+                            // The number of cell on the page will depend by the number of element in this array
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         setupCollectionView()
         
-        
+        // This is a example to create a model
+        // this will be a type of Ads
+        // Fill in the informations that we need
         var uber = Ads()
         uber.image = UIImage(named: "uberLogo")
         uber.name = "UBER"
@@ -34,7 +37,7 @@ class BidAdHomeController: UIViewController, UICollectionViewDelegateFlowLayout,
         
         
         
-        ADDS.append(uber)
+        ADDS.append(uber)           // Append the model into the ADDS array
         ADDS.append(adidas)
         
     }

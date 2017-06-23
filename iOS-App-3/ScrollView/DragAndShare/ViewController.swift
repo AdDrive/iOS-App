@@ -6,26 +6,21 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
-        
-        //imageView = UIImageView(image: UIImage(named: "image.png"))
-        
+        // Set the View type of the page
+        // This page will be a scrollView
         scrollView = UIScrollView(frame: view.bounds)
-        scrollView.backgroundColor = UIColor.white
-        //scrollView.contentSize = imageView.bounds.size
-        //scrollView.autoresizingMask = UIViewAutoresizing.FlexibleWidth  UIViewAutoresizing.FlexibleHeight
         
+        // Set the background color for this page
+        scrollView.backgroundColor = UIColor.white
+        
+        // Set the size of the scrollView
         scrollView.contentSize = CGSize(width: view.frame.width, height: 1000)
         
-        
+        // Add the scrollView to view
         view.addSubview(scrollView)
-        
-        //scrollView.addSubview(inputText)
-        //inputText.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        
-        //scrollView.addSubview(redView)
-        //redView.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
         
         scrollView.addSubview(yourCompanyNameTextField)
         yourCompanyNameTextField.topAnchor.constraint(equalTo: scrollView.topAnchor, constant:50).isActive = true
@@ -44,7 +39,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         ad_content.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 20).isActive = true
         ad_content.widthAnchor.constraint(equalToConstant: scrollView.frame.width - 20*2).isActive = true
         ad_content.heightAnchor.constraint(equalToConstant: 150).isActive = true
-        
         
         scrollView.addSubview(company_web)
         company_web.topAnchor.constraint(equalTo: ad_content.bottomAnchor, constant: 15).isActive = true
@@ -101,40 +95,6 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         send.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 130).isActive = true
         send.widthAnchor.constraint(equalToConstant: scrollView.frame.width - 130*2).isActive = true
         send.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        
-        /*
-        company_web.addSubview(link)
-        link.topAnchor.constraint(equalTo: company_web.topAnchor, constant: 0).isActive = true
-        link.leftAnchor.constraint(equalTo: company_web.leftAnchor, constant: 0).isActive = true
-        link.widthAnchor.constraint(equalToConstant: scrollView.frame.width - 365).isActive = true
-        link.heightAnchor.constraint(equalToConstant: 50).isActive = true
-        */
-        
-        
-        
-//        yourCompanyNameTextField.frame = CGRect(x: 50, y: 50, width: 50, height: 50)
-//        scrollView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[v0]|", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": yourCompanyNameTextField]))
-//        scrollView.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[v0(50)]", options: NSLayoutFormatOptions(), metrics: nil, views: ["v0": yourCompanyNameTextField]))
-        
-        
-        //scrollView.addSubview(btn1)
-        //scrollView.addSubview(btn2)
-        
-        //btn1.frame = CGRect(x: 0, y: 0, width: 50, height: 50)
-        //btn2.frame = CGRect(x: 0, y: 900, width: 50, height: 50)
-        
-        
-//        let items = ["Purple", "Green", "Blue"]
-//        let customSC = UISegmentedControl(items: items)
-//        customSC.selectedSegmentIndex = 0
-//
-//        customSC.layer.cornerRadius = 5.0  // Don't let background bleed
-//        customSC.backgroundColor = UIColor.black
-//        customSC.tintColor = UIColor.white
-//
-//        customSC.addTarget(self, action: #selector(changeColor), for: .valueChanged)
-//        scrollView.addSubview(customSC)
-//        customSC.frame = CGRect(x: 0, y: 200, width: view.frame.width, height: 100)
     }
     
     let redView: UIView = {
@@ -143,6 +103,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         return rv
     }()
     
+    // Set up the textField to fill the "Company Name" on the page
     let yourCompanyNameTextField: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Your Company Name"
@@ -156,6 +117,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         return tf
     }()
     
+    // Set up the UIView to upload the image on the page
     let upload_image: UIView = {
         let uv = UILabel()
         uv.text = "Upload your image here"
@@ -169,95 +131,92 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         return uv
     }()
     
+    // Set up the TextField to "enter the advertisement content"
     let ad_content: UITextField = {
         let tf = UITextField()
         tf.placeholder = "Enter your AD content here"
         tf.backgroundColor = .white
         tf.textAlignment = .center
         tf.translatesAutoresizingMaskIntoConstraints = false
-        //tf.layer.cornerRadius = 8.0
         tf.layer.masksToBounds = true
         tf.layer.borderColor = UIColor( red: 197/255, green: 197/255, blue:197/255, alpha: 1.0 ).cgColor
         tf.layer.borderWidth = 1.0
         return tf
     }()
     
+    // Set up the left view for textfield to fill in the link of the Advertisement company website
     let link: UIView = {
         let tf = UILabel()
         tf.text = "   Link"
         tf.backgroundColor = .white
-        //tf.textAlignment = .center
         tf.translatesAutoresizingMaskIntoConstraints = false
-        //tf.layer.cornerRadius = 8.0
-        //tf.layer.masksToBounds = true
-        //tf.layer.borderColor = UIColor( red: 197/255, green: 197/255, blue:197/255, alpha: 1.0 ).cgColor
-        //tf.layer.borderWidth = 2.0
         return tf
     }()
     
+    // Set up the left view for textfield to fill in the price for an Advertisement
     let price: UIView = {
        let tf = UILabel()
         tf.text = "   Price"
         tf.backgroundColor = .white
-        //tf.textAlignment = .left
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
     
+    // Set up the left view for textfield to fill in the time length for an Advertisement
     let time_length: UIView = {
         let tf = UILabel()
         tf.text = "   Time length"
         tf.backgroundColor = .white
-        //tf.textAlignment = .left
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
     
+    // Set up the left view for textfield to fill in the quantity of an Advertisement
     let quantity: UIView = {
         let tf = UILabel()
         tf.text = "   Quantity"
         tf.backgroundColor = .white
-        //tf.textAlignment = .left
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
     
+    // Set up the right view for textfield to fill in the price for an Advertisement
     let unit: UIView = {
         let tf = UILabel()
         tf.text = " / min   "
         tf.backgroundColor = .white
-        //tf.textAlignment = .left
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
     
+    // Set up the right view for textfield to fill in the time length for an Advertisement
     let unit_1: UIView = {
         let tf = UILabel()
         tf.text = "  hour   "
         tf.backgroundColor = .white
-        //tf.textAlignment = .left
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
     
+    // Set up the right view for the textfield to fill in the quantity of the Advertisement
     let unit_2: UIView = {
         let tf = UILabel()
         tf.text = "  ad   "
         tf.backgroundColor = .white
-        //tf.textAlignment = .left
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
     
+    // Set up the right view for the textfield to fill in the price for an Advertisement
     let unit_3: UIView = {
         let tf = UILabel()
         tf.text = "$  "
         tf.backgroundColor = .white
-        //tf.textAlignment = .left
         tf.translatesAutoresizingMaskIntoConstraints = false
         return tf
     }()
     
+    // Set up the UIView to show the final price for the advertisement
     let cost: UIView = {
         let tf = UILabel()
         tf.text = "$ 140.00 "
@@ -269,6 +228,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         return tf
     }()
     
+    // Set up the UIView to show the text "estimated cost"
     let text_1: UIView = {
         let tf = UILabel()
         tf.text = "  Estimated Cost"
@@ -280,6 +240,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         return tf
     }()
     
+    // Set up the UIView for the "send" button
     let send: UIView = {
         let tf = UILabel()
         tf.text = "Send"
@@ -291,6 +252,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         return tf
     }()
     
+    // Set up the textfield to "Enter the company website"
     let company_web: UITextField = {
        let tf = UITextField()
         tf.placeholder = "Enter your company's website here"
@@ -303,6 +265,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         return tf
     }()
     
+    // Set up the textfield to enter the "price"
     let money: UITextField = {
         let tf = UITextField()
         tf.placeholder = "$0.01"
@@ -315,6 +278,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         return tf
     }()
     
+    // Set up the textfield to enter the "time length"
     let time: UITextField = {
         let tf = UITextField()
         tf.placeholder = "2"
@@ -327,6 +291,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         return tf
     }()
     
+    // Set up the textfield to enter the "quantity"
     let amount: UITextField = {
         let tf = UITextField()
         tf.placeholder = "100"
@@ -359,32 +324,5 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         tf.layer.borderWidth = 1.0
         return tf
     }()
-    
-    
-//    @objc func changeColor(sender: UISegmentedControl) {
-//        switch sender.selectedSegmentIndex {
-//        case 1:
-//            self.view.backgroundColor = UIColor.green
-//        case 2:
-//            self.view.backgroundColor = UIColor.blue
-//        default:
-//            self.view.backgroundColor = UIColor.purple
-//        }
-//    }
-    
-    
-    
-//    let btn2: UIButton = {
-//        let btn = UIButton()
-//        btn.backgroundColor = .red
-//        return btn
-//    }()
-//
-//
-//    let btn1: UIButton = {
-//        let btn = UIButton()
-//        btn.backgroundColor = .red
-//        return btn
-//    }()
     
 }
