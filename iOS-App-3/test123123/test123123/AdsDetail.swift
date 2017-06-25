@@ -31,6 +31,8 @@ class AdsDetailController: UIViewController {
         income.text = "$" + addDetial.price!
         numleft.text = addDetial.quantity!
         timelen.text = addDetial.timelength!
+        label.text = addDetial.name!
+        image.image = addDetial.image!
         
         view.backgroundColor = UIColor.init(red: 20/255, green: 63/255, blue: 65/255, alpha: 1)
         
