@@ -1,28 +1,74 @@
+//
+//  ViewController.swift
+//  AdsApp
+//
+//  Created by 李博韬 on 30/06/2017.
+//  Copyright © 2017 tonyli. All rights reserved.
+//
+
 import UIKit
 
-class ViewController: UIViewController, UIScrollViewDelegate {
+class BidAdHomeController: UIViewController, UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, UICollectionViewDelegate, UIScrollViewDelegate {
+    
+    private let reuseIdentifier = "Cell"
     
     var scrollView: UIScrollView!
     
+    var dataArray = [String]()
+    var filteredArray = [String]()
+    var shouldShowSearchResults = false
+    
+    var ADDS = [Ads]()
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        collectionView.isHidden = false
+        scrollView.isHidden = true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        scrollView = UIScrollView(frame: view.bounds)
+        setupSegmentedController()
+        
+        setupCollectionView()
+        
+        setupScrollView()
+        
+        // This is a example to create a model
+        // this will be a type of Ads
+        // Fill in the informations that we need
+        let uber = Ads()
+        uber.image = UIImage(named: "uberLogo")
+        uber.name = "UBER"
+        uber.price = "12"
+        uber.quantity = "90"
+        uber.timelength = "2"
+        ADDS.append(uber)
+        
+        let adidas = Ads()
+        adidas.image = UIImage(named: "uberLogo")
+        adidas.name = "ADIDAS"
+        adidas.price = "13"
+        adidas.quantity = "100"
+        adidas.timelength = "3"
+        ADDS.append(adidas)
+        
+        
+        
+    }
+    
+    func setupScrollView() {
+        
+        let frame = CGRect(x: view.bounds.minX, y: view.bounds.minY + 120, width: view.bounds.width, height: view.bounds.height)
+        scrollView = UIScrollView(frame: frame)
+        
         scrollView.backgroundColor = UIColor.white
         
-        scrollView.contentSize = CGSize(width: view.frame.width, height: 1000)
-        
+        scrollView.contentSize = CGSize(width: view.frame.width, height: 1200)
         
         view.addSubview(scrollView)
         
-            
-        
-        //scrollView.addSubview(inputText)
-        //inputText.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
-        
-        //scrollView.addSubview(redView)
-        //redView.frame = CGRect(x: 100, y: 100, width: 100, height: 100)
         
         scrollView.addSubview(yourCompanyNameTextField)
         yourCompanyNameTextField.topAnchor.constraint(equalTo: scrollView.topAnchor, constant:50).isActive = true
@@ -98,7 +144,103 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         send.leftAnchor.constraint(equalTo: scrollView.leftAnchor, constant: 130).isActive = true
         send.widthAnchor.constraint(equalToConstant: scrollView.frame.width - 130*2).isActive = true
         send.heightAnchor.constraint(equalToConstant: 50).isActive = true
-
+    }
+    
+    func setupSegmentedController() {
+        
+        view.addSubview(customSC)
+        let height = (self.navigationController?.navigationBar.frame.height)! * 2 - 20
+        customSC.centerXAnchor.constraint(equalTo: view.centerXAnchor).isActive = true
+        customSC.topAnchor.constraint(equalTo: view.topAnchor, constant: height).isActive = true
+        customSC.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        customSC.heightAnchor.constraint(equalToConstant: 40).isActive = true
+        
+    }
+    
+    
+    func setupCollectionView() {
+        
+        collectionView.register(HomeCell.self, forCellWithReuseIdentifier: reuseIdentifier)
+        
+        view.addSubview(collectionView)
+        view.addConstraintsWithFormat(format: "H:|[v0]|", views: collectionView)
+        view.addConstraintsWithFormat(format: "V:|-200-[v0]|", views: collectionView)
+        
+        collectionView.delegate = self
+        collectionView.dataSource = self
+        collectionView.alwaysBounceVertical = true
+    }
+    
+    
+    let customSC: UISegmentedControl = {
+        let sc = UISegmentedControl(items: ["Bid ad", "Send ad"])
+        sc.tintColor = UIColor.white
+        sc.translatesAutoresizingMaskIntoConstraints = false
+        sc.selectedSegmentIndex = 0
+        sc.addTarget(self, action: #selector(switchPage), for: .valueChanged)
+        return sc
+    }()
+    
+    @objc func switchPage(sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 1:
+            collectionView.isHidden = true
+            scrollView.isHidden = false
+        default:
+            collectionView.isHidden = false
+            scrollView.isHidden = true
+        }
+    }
+    
+    let collectionView: UICollectionView = {
+        let layout = UICollectionViewFlowLayout()
+        let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
+        
+        cv.backgroundColor = .white
+        cv.translatesAutoresizingMaskIntoConstraints = false
+        return cv
+    }()
+    
+    
+    // 设置方块大小
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        let w = view.frame.width
+        return CGSize(width: 0.8*w, height: 75)
+    }
+    
+    // 设置个数
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of items
+        return ADDS.count
+    }
+    
+    // pre-set
+    internal func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: reuseIdentifier, for: indexPath) as! HomeCell
+        
+        cell.name.text = ADDS[indexPath.item].name
+        cell.image.image = ADDS[indexPath.item].image
+        cell.price.text = "$" + ADDS[indexPath.item].price!
+        cell.seat.text = ADDS[indexPath.item].quantity
+        
+        
+        // Configure the cell
+        cell.backgroundColor = UIColor.init(red: 250/255, green: 248/255, blue: 245/255, alpha: 1)
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 15
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        
+        let adController = AdsDetailController()
+        adController.addDetial = ADDS[indexPath.item]
+        
+        print(123)
+        
+        navigationController?.pushViewController(adController, animated: true)
     }
     
     
@@ -155,7 +297,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }()
     
     let price: UIView = {
-       let tf = UILabel()
+        let tf = UILabel()
         tf.text = "   Price"
         tf.backgroundColor = .white
         //tf.textAlignment = .left
@@ -251,7 +393,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
     }()
     
     let company_web: UITextField = {
-       let tf = UITextField()
+        let tf = UITextField()
         tf.placeholder = "Enter your company's website here"
         tf.backgroundColor = .white
         tf.textAlignment = .center
@@ -330,6 +472,7 @@ class ViewController: UIViewController, UIScrollViewDelegate {
         tf.layer.borderWidth = 1.0
         return tf
     }()
+    
     
     
 }
