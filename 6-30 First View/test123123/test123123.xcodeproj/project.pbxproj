@@ -52,6 +52,7 @@
 		4A5933361EF70928008F5B3E /* test123123UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = test123123UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4A59333A1EF70928008F5B3E /* test123123UITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = test123123UITests.swift; sourceTree = "<group>"; };
 		4A59333C1EF70928008F5B3E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4ABF1A8C1F10877F00A24A09 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		A0B58AFD1EFD939700CD62C1 /* BidAdHomeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidAdHomeController.swift; sourceTree = "<group>"; };
 		A0B58AFF1EFDA0F700CD62C1 /* AdsDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsDetail.swift; sourceTree = "<group>"; };
 		A0B58B011EFDA2DF00CD62C1 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
@@ -121,6 +122,7 @@
 		4A59330E1EF70928008F5B3E = {
 			isa = PBXGroup;
 			children = (
+				4ABF1A8C1F10877F00A24A09 /* Default-568h@2x.png */,
 				4A5933191EF70928008F5B3E /* test123123 */,
 				4A59332E1EF70928008F5B3E /* test123123Tests */,
 				4A5933391EF70928008F5B3E /* test123123UITests */,

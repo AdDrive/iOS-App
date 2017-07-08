@@ -12,6 +12,8 @@ class BidAdHomeController: UIViewController, UICollectionViewDelegateFlowLayout,
     
     private let reuseIdentifier = "Cell"
     
+    var customSearchController: CustomSearchController!
+    
     var scrollView: UIScrollView!
     
     var dataArray = [String]()
@@ -35,6 +37,8 @@ class BidAdHomeController: UIViewController, UICollectionViewDelegateFlowLayout,
         
         setupScrollView()
         
+        setupCustomSearchBar()
+        
         // This is a example to create a model
         // this will be a type of Ads
         // Fill in the informations that we need
@@ -56,6 +60,14 @@ class BidAdHomeController: UIViewController, UICollectionViewDelegateFlowLayout,
         
         
         
+    }
+    
+
+    func configureCustomSearchController() {
+        customSearchController = CustomSearchController(searchResultsController: self, searchBarFrame: CGRectMake(0.0, 0.0, tblSearchResults.frame.size.width, 50.0), searchBarFont: UIFont(name: "Futura", size: 16.0)!, searchBarTextColor: UIColor.orangeColor(), searchBarTintColor: UIColor.blackColor())
+        
+        customSearchController.customSearchBar.placeholder = "Search in this awesome bar..."
+        tblSearchResults.tableHeaderView = customSearchController.customSearchBar
     }
     
     func setupScrollView() {

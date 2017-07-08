@@ -16,7 +16,7 @@
 		4A44D90D1F062D650062D3C8 /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A44D90C1F062D650062D3C8 /* Extension.swift */; };
 		4A44D90F1F062DBC0062D3C8 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A44D90E1F062DBC0062D3C8 /* Model.swift */; };
 		4A44D9121F0633770062D3C8 /* AdsDetailController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4A44D9111F0633770062D3C8 /* AdsDetailController.swift */; };
-		4AB7C1291F06540A003C4A39 /* BidAdCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7C1281F06540A003C4A39 /* BidAdCollectionView.swift */; };
+		4AB7C1291F06540A003C4A39 /* CustomSearchController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4AB7C1281F06540A003C4A39 /* CustomSearchController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		4A44D90C1F062D650062D3C8 /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 		4A44D90E1F062DBC0062D3C8 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		4A44D9111F0633770062D3C8 /* AdsDetailController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdsDetailController.swift; sourceTree = "<group>"; };
-		4AB7C1281F06540A003C4A39 /* BidAdCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BidAdCollectionView.swift; sourceTree = "<group>"; };
+		4AB7C1281F06540A003C4A39 /* CustomSearchController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomSearchController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,7 +90,7 @@
 			isa = PBXGroup;
 			children = (
 				4A44D90A1F062D380062D3C8 /* HomeCell.swift */,
-				4AB7C1281F06540A003C4A39 /* BidAdCollectionView.swift */,
+				4AB7C1281F06540A003C4A39 /* CustomSearchController.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -179,7 +179,7 @@
 				4A44D90B1F062D380062D3C8 /* HomeCell.swift in Sources */,
 				4A44D8F51F062A780062D3C8 /* AppDelegate.swift in Sources */,
 				4A44D9121F0633770062D3C8 /* AdsDetailController.swift in Sources */,
-				4AB7C1291F06540A003C4A39 /* BidAdCollectionView.swift in Sources */,
+				4AB7C1291F06540A003C4A39 /* CustomSearchController.swift in Sources */,
 				4A44D90D1F062D650062D3C8 /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
